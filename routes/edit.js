@@ -2,37 +2,20 @@ const router = require('express').Router();
 const db = require('../core/db');
 
 router
-  .get('/all/id/:id', (req, res) => {
-    if (req.user.root === 3) {
-      db.resolves
-        .findOne({
-          where: {
-            id: req.params.id
-          }
-        })
-        .then(result => {
-          res.render('editAll', {
-            title: 'Редактирование',
-            resolve: result
-          });
-        })
-    } else {
-      res.render('rootDenied');
-    }
-  })
-  .get('/problem/id/:id', (req, res) => {
-    if (req.user.root === 1 || req.user.root === 3) {
-      res.render('editProblem');
-    } else {
-      res.render('rootDenied');
-    }
-  })
-  .get('/rate/id/:id', (req, res) => {
-    if (req.user.root === 2 || req.user.root === 3) {
-      res.render('editRate');
-    } else {
-      res.render('rootDenied');
-    }
+  .get('/id/:id', (req, res) => {
+    db.resolves
+      .findOne({
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(result => {
+        res.render('edit', {
+          title: 'Редактирование',
+          resolve: result,
+          root: req.user.root
+        });
+      })
   })
   .post('/', (req, res) => {
     const editResolve = {}

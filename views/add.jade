@@ -7,9 +7,10 @@ block content
         h1= title
         form(action='/add', method='post')
           label.control-label Проблема:
-          input.form-control(type='text', name='problem', placeholder='Логин', required)
+          input.form-control(type='text', name='problem', placeholder='Введите проблему', required)
           label.control-label Решение:
-          input.form-control(type='text', name='resolve', placeholder='Пароль', required)
-          label.control-label Оценка:
-          input.rating.rating-loading(name="rate", data-min="0", data-max="5", data-step="1")
+          input.form-control(type='text', name='resolve', placeholder='Введите решение', required)
+          if root === 3
+            label.control-label Оценка:
+            input.rating.rating-loading(name="rate", data-min="0", data-max="5", data-step="1")
           button.btn.btn-primary(type='submit') Создать

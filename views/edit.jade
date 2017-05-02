@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  .container
+    .col-sm-10
+      .row
+        h1= title
+        form(action='/edit', method='post')
+          input.form-control(type='hidden', name='id', value='#{resolve.id}')
+          if root !== 2
+            label.control-label Проблема:
+            input.form-control(type='text', name='problem', placeholder='Введите название проблему', required, value='#{resolve.problem}')
+            label.control-label Решение:
+            input.form-control(type='text', name='resolve', placeholder='Введите решение', required, value='#{resolve.resolve}')
+          if root !== 1
+            label.control-label Оценка:
+            input.rating.rating-loading(name="rate", data-min="0", data-max="5", data-step="1", value="#{resolve.rate ? resolve.rate : 0}")
+          button.btn.btn-primary(type='submit') Редактировать
+
+
+//- extends layout
+//- 
+//- block content
+//-   .container
+//-     .col-sm-10
+//-       .row
+//-       h1= title
+//-       form(action='/edit', method='post')
+//-         input.form-control(type='hidden', name='id', value='#{resolve.id}')
+//-         label.control-label Проблема:
+//-         input.form-control(type='text', name='problem', placeholder='Введите название проблему', required, value='#{resolve.problem}')
+//-         label.control-label Решение:
+//-         input.form-control(type='text', name='resolve', placeholder='Введите решение', required, value='#{resolve.resolve}')
+//-         label.control-label Оценка:
+//-         input.rating.rating-loading(name="rate", data-min="0", data-max="5", data-step="1", value="#{resolve.rate}")
+//-         button.btn.btn-primary(type='submit') Редактировать

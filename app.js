@@ -68,8 +68,8 @@ const mustBeAuthenticated = (req, res, next) => {
 
 app.all('/', mustBeAuthenticated);
 app.all('/add', mustBeAuthenticated);
+app.all('/add/user', mustBeAuthenticated);
 app.all('/edit', mustBeAuthenticated);
-app.all('/edit/', mustBeAuthenticated);
 
 app.post('/auth', auth)
 app.get('/auth', (req, res) => res.render('auth', { title: 'Аутентификация' }));
@@ -82,6 +82,8 @@ app.get('/logout', function(req, res){
 app.use('/', index);
 app.use('/add', add);
 app.use('/edit', edit);
+
+app.get('*', (req, res) => res.redirect('/'));
 
 http.createServer(app).listen(3000, () => {
   console.log(`Server running at port 3000`);

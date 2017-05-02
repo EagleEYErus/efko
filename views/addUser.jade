@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  .container
+    .col-sm-10
+      .row
+        h1= title
+        form(action='/add/user', method='post')
+          label.control-label Логин пользователя:
+          input.form-control(type='text', name='username', placeholder='Введите логин пользователя', required)
+          label.control-label Пароль пользователя:
+          input.form-control(type='text', name='password', placeholder='Пароль пользователя', required)
+          label.control-label Права пользователя:
+          .radio
+            label
+              input(type="radio", name="root", value=1) 
+              Редактирование первых двух полей
+          .radio
+            label
+             input(type="radio", name="root", value=2) 
+             Редактирование оценки
+          .radio
+            label
+             input(type="radio", name="root", value=3)
+             Администратор
+          button.btn.btn-primary(type='submit') Создать

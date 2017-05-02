@@ -6,9 +6,13 @@ block content
       .row
         h1= title
         label#account-info= info
-        if root === 3
-          .text-right
+        a.btn.btn-primary(href='/logout') Выйти
+        .text-right
+          if root !== 2
             a(href='/add') + Добавить
+          if root === 3
+            br
+            a(href='/add/user') + Добавить пользователя
         table.table.table-bordered.table-hover
           thead
             tr
@@ -22,19 +26,19 @@ block content
                 td= resolve.problem
                 td= resolve.resolve
                 td
-                  input.rating-loading(value="#{resolve.rate}", data-size="xs")
+                  input.rating-loading(value="#{resolve.rate ? resolve.rate : 0}", data-size="xs")
                 td
-                  if root === 3
-                    form(action='/edit/all/id/#{resolve.id}', method='get')
-                      button.btn.btn-default(type='submit')
-                        span.glyphicon.glyphicon-pencil
-                  else if root === 2
-                    form(action='/edit/rate/id/#{resolve.id}', method='get')
-                      button.btn.btn-default(type='submit')
-                        span.glyphicon.glyphicon-pencil
-                  else if root === 1
-                    form(action='/edit/problem/id/#{resolve.id}', method='get')
-                      button.btn.btn-default(type='submit')
-                        span.glyphicon.glyphicon-pencil
+                  //- if root === 3
+                  form(action='/edit/id/#{resolve.id}', method='get')
+                    button.btn.btn-default(type='submit')
+                      span.glyphicon.glyphicon-pencil
+                  //- else if root === 2
+                  //-   form(action='/edit/id/#{resolve.id}', method='get')
+                  //-     button.btn.btn-default(type='submit')
+                  //-       span.glyphicon.glyphicon-pencil
+                  //- else if root === 1
+                  //-   form(action='/edit/id/#{resolve.id}', method='get')
+                  //-     button.btn.btn-default(type='submit')
+                  //-       span.glyphicon.glyphicon-pencil
   script.
     $('.rating-loading').rating({displayOnly: true, step: 1});
