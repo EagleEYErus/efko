@@ -1,0 +1,33 @@
+{
+  "name": "efko",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EagleEYErus/efko.git"
+  },
+  "author": "Alexander Saprykin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EagleEYErus/efko/issues"
+  },
+  "homepage": "https://github.com/EagleEYErus/efko#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-beta.1",
+    "express": "^4.15.2",
+    "jade": "^1.11.0",
+    "md5": "^2.2.1",
+    "mysql": "^2.13.0",
+    "node-sass-middleware": "^0.11.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "sequelize": "^3.30.4"
+  }
+}
