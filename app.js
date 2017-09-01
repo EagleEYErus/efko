@@ -1,5 +1,4 @@
 const express = require('express');
-const http = require('http');
 const path = require('path');
 const bodyParser = require('body-parser');
 const sassMiddleware = require('node-sass-middleware');
@@ -85,6 +84,6 @@ app.use('/edit', edit);
 
 app.get('*', (req, res) => res.redirect('/'));
 
-http.createServer(app).listen(3000, () => {
+app.listen(3000, () => {
   console.log(`Server running at port 3000`);
 });
